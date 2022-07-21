@@ -1,13 +1,11 @@
 pipeline {
 
-agent { node { label 'Linux-Demo' } }
+agent { node { label 'master' } }
 tools {
-        maven 'maven3.3.9' 
-        jdk 'jdk1.8'
+        maven 'maven-3.8.6' 
+        jdk 'Jdk-9.0.4'
     }
 stages {
-    stage('Run in parallel') {
-     parallel {
         stage('Code validate') {
             steps {
                 sh 'mvn validate'
